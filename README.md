@@ -135,6 +135,22 @@ npm run deploy
 
 This script automatically builds the project and deploys it to GitHub Pages.
 
+### GitHub Sync Tool
+
+To avoid GitHub synchronization issues, use the included GitHub sync script:
+
+```sh
+npm run github:sync
+```
+
+This interactive script simplifies GitHub operations by:
+- Adding and committing all changes
+- Creating a new branch if needed (recommended)
+- Handling push conflicts with optional force push
+- Optionally deploying to GitHub Pages
+
+**Recommended Workflow**: Always use this script instead of manual Git commands to avoid repository conflicts.
+
 **Important**: As detailed in [MAINTENANCE.md](./MAINTENANCE.md), only deploy after significant successful changes or when you specifically want to update the live site. Avoid frequent small deployments to prevent potential issues.
 
 ## Known Issues and Solutions

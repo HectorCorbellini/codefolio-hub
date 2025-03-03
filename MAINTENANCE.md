@@ -73,6 +73,23 @@ Always test your changes locally before deploying:
 
 **Important**: Only deploy after significant successful changes or when you specifically want to update the live site. Avoid frequent small deployments to prevent potential issues.
 
+### GitHub Sync Tool
+
+To simplify GitHub operations and avoid common issues, use the included GitHub sync script:
+
+```sh
+# Run the GitHub sync script
+npm run github:sync
+```
+
+This interactive script will:
+1. Add and commit all your changes
+2. Optionally create a new branch (recommended to avoid conflicts)
+3. Push changes to GitHub, with an option for force push if needed
+4. Optionally deploy to GitHub Pages
+
+Using this script helps avoid common Git issues and ensures a smooth workflow.
+
 ### Deployment Steps
 
 1. Make sure all changes are working correctly locally
