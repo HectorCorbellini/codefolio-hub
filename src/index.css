@@ -45,6 +45,7 @@
 
   body {
     @apply bg-background text-foreground antialiased overflow-x-hidden;
+    background-color: #f0f9f0 !important; /* Light green fallback */
   }
 
   .glass {

@@ -95,10 +95,10 @@ const Index = () => {
         </div>
       </CategorySection>
       
-      {/* Videos Section */}
+      {/* Watch Section */}
       <CategorySection
         id="videos"
-        title="Development Process Videos"
+        title="Development Process Watch"
         description="Watch demonstrations of coding workflows, implementation techniques, and completed project walkthroughs."
         alternate
       >

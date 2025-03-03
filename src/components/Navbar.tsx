@@ -24,7 +24,7 @@ const Navbar = () => {
     { name: 'Home', href: '#hero' },
     { name: 'Java Exercises', href: '#java-exercises' },
     { name: 'Business Projects', href: '#business-projects' },
-    { name: 'Videos', href: '#videos' },
+    { name: 'Watch', href: '#videos' },
     { name: 'Collaborations', href: '#collaborations' },
   ];
 
