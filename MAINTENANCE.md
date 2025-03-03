@@ -67,6 +67,29 @@ Always test your changes locally before deploying:
 3. Test on different screen sizes using browser developer tools
 4. Verify that all links work correctly
 
+### Testing Strategy
+
+For a comprehensive testing approach, follow these steps:
+
+1. **Visual Testing**:
+   - Test on multiple browsers (Chrome, Firefox, Safari)
+   - Test on different screen sizes (mobile, tablet, desktop)
+   - Verify that all animations and transitions work correctly
+
+2. **Functional Testing**:
+   - Verify that all links navigate to the correct sections
+   - Test all interactive elements (buttons, links, etc.)
+   - Check that all images and assets load correctly
+
+3. **Performance Testing**:
+   - Use browser developer tools to check load times
+   - Verify that animations are smooth and don't cause jank
+   - Check for any console errors or warnings
+
+4. **Cross-Browser Compatibility**:
+   - Test on different browsers to ensure consistent appearance
+   - Pay special attention to CSS features that may have varying support
+
 ## Deployment Process
 
 ### When to Deploy
@@ -150,6 +173,35 @@ If styling doesn't appear correctly:
 1. Check for CSS syntax errors
 2. Verify that Tailwind classes are being applied
 3. Inspect elements using browser developer tools
+
+#### Background Color Issue
+
+The light green background color may not appear correctly on GitHub Pages. Here are specific solutions:
+
+1. **Direct HTML and Body Styling**:
+   Add the following to `src/index.css`:
+   ```css
+   html, body {
+     background-color: #f5f8f5 !important; /* Light green fallback */
+   }
+   ```
+
+2. **Inline Style in App Component**:
+   Modify `src/App.tsx` to include:
+   ```tsx
+   <div className="app" style={{ backgroundColor: 'hsl(120, 30%, 97%)' }}>
+     {/* App content */}
+   </div>
+   ```
+
+3. **Meta Theme Color**:
+   Add to `index.html`:
+   ```html
+   <meta name="theme-color" content="#f5f8f5">
+   ```
+
+4. **Clear Cache After Deployment**:
+   After deploying, instruct users to hard-refresh (Ctrl+F5) to see the changes.
 
 #### GitHub Pages Issues
 

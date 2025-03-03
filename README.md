@@ -14,6 +14,7 @@ This repository includes additional documentation that is crucial for maintainin
 
 - [**MAINTENANCE.md**](./MAINTENANCE.md) - Detailed instructions for maintaining, updating, and deploying the portfolio. **Read this before making changes!**
 - [**HISTORY_NOTE.md**](./HISTORY_NOTE.md) - Development history, challenges faced, and lessons learned to prevent recurring issues.
+- [**COMPONENTS.md**](./COMPONENTS.md) - Comprehensive documentation of the component architecture, props, state management, and component relationships.
 
 ## Technology Stack
 
@@ -28,6 +29,18 @@ This project is built with modern web technologies:
 - **React Query** - Data fetching and state management
 
 ## Getting Started
+
+### Development Requirements
+- Node.js v16.x or higher (specified in `.nvmrc`)
+- npm v7.x or higher
+- Git v2.x or higher
+
+### Quick Start for New Developers
+1. Clone the repository
+2. If using nvm, run `nvm use` to switch to the correct Node.js version
+3. Install dependencies with `npm install`
+4. Start development server with `npm run dev`
+5. Visit http://localhost:8080 in your browser
 
 ### Development Environment
 
@@ -51,6 +64,8 @@ The current local development path for this project is:
 ```
 /home/uko/CascadeProjects/codefolio-hub_PORTFOLIO/codefolio-hub-main
 ```
+
+> **Note**: This path is specific to the current maintainer's environment. You should use your own local development path.
 
 ### Build for Production
 
@@ -149,7 +164,16 @@ This interactive script simplifies GitHub operations by:
 - Handling push conflicts with optional force push
 - Optionally deploying to GitHub Pages
 
-**Recommended Workflow**: Always use this script instead of manual Git commands to avoid repository conflicts.
+### Git Workflow
+
+For consistent collaboration, follow this Git workflow:
+
+1. Create feature branches from main: `git checkout -b feature/your-feature-name`
+2. Make changes and test locally
+3. Use `npm run github:sync` to commit and push changes
+4. Create a pull request to merge into main
+
+**Recommended Workflow**: Always use the GitHub sync script instead of manual Git commands to avoid repository conflicts.
 
 **Important**: As detailed in [MAINTENANCE.md](./MAINTENANCE.md), only deploy after significant successful changes or when you specifically want to update the live site. Avoid frequent small deployments to prevent potential issues.
 
@@ -157,7 +181,17 @@ This interactive script simplifies GitHub operations by:
 
 ### Background Color
 
-There is a known issue with the light green background color not appearing on GitHub Pages. We're working on a solution for this.
+There is a known issue with the light green background color not appearing on GitHub Pages. This occurs because CSS variables may not be properly applied in some deployment environments.
+
+**Current Workarounds**:
+1. Direct HTML/Body styling has been added to `src/index.css`
+2. Cache control headers have been implemented
+
+**For Users**:
+- If you see a white background instead of light green, try hard-refreshing your browser (Ctrl+F5 or Cmd+Shift+R)
+- Try viewing the site in an incognito/private window
+
+See [MAINTENANCE.md](./MAINTENANCE.md#background-color-issue) for detailed technical solutions.
 
 ## Cache Control Improvements
 
