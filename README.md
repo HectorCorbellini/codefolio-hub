@@ -1,69 +1,163 @@
-# Welcome to your Lovable project
+# CodeFolio Hub - Java Developer Portfolio
 
-## Project info
+## Project Overview
 
-**URL**: https://lovable.dev/projects/653820a7-7c6c-4aba-a022-7a06b74a7105
+**Live Demo**: [CodeFolio Hub on GitHub Pages](https://hectorcorbellini.github.io/codefolio-hub/)
 
-## How can I edit this code?
+**GitHub Repository**: [https://github.com/HectorCorbellini/codefolio-hub](https://github.com/HectorCorbellini/codefolio-hub)
 
-There are several ways of editing your application.
+CodeFolio Hub is a modern, responsive portfolio website designed to showcase a Java developer's skills, projects, and professional experience. The site features a clean, professional design with dedicated sections for different types of projects and exercises.
 
-**Use Lovable**
+## Important Documentation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/653820a7-7c6c-4aba-a022-7a06b74a7105) and start prompting.
+This repository includes additional documentation that is crucial for maintaining and understanding the project:
 
-Changes made via Lovable will be committed automatically to this repo.
+- [**MAINTENANCE.md**](./MAINTENANCE.md) - Detailed instructions for maintaining, updating, and deploying the portfolio. **Read this before making changes!**
+- [**HISTORY_NOTE.md**](./HISTORY_NOTE.md) - Development history, challenges faced, and lessons learned to prevent recurring issues.
 
-**Use your preferred IDE**
+## Technology Stack
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+This project is built with modern web technologies:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **React** - Frontend library for building user interfaces
+- **TypeScript** - Typed JavaScript for better developer experience
+- **Vite** - Fast, modern frontend build tool
+- **Tailwind CSS** - Utility-first CSS framework
+- **shadcn/ui** - Reusable UI components
+- **React Router** - For navigation and routing
+- **React Query** - Data fetching and state management
 
-Follow these steps:
+## Getting Started
+
+### Development Environment
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone https://github.com/HectorCorbellini/codefolio-hub.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd codefolio-hub
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Local Development Path
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The current local development path for this project is:
+```
+/home/uko/CascadeProjects/codefolio-hub_PORTFOLIO/codefolio-hub-main
+```
 
-**Use GitHub Codespaces**
+### Build for Production
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```sh
+# Generate production build
+npm run build
 
-## What technologies are used for this project?
+# Preview production build locally
+npm run preview
+```
 
-This project is built with .
+## Deployment Options
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Currently Deployed On
+- **GitHub Pages** - The site is currently deployed on GitHub Pages
 
-## How can I deploy this project?
+### Alternative Deployment Options
 
-Simply open [Lovable](https://lovable.dev/projects/653820a7-7c6c-4aba-a022-7a06b74a7105) and click on Share -> Publish.
+#### Netlify
+```sh
+# Install Netlify CLI
+npm install -g netlify-cli
 
-## I want to use a custom domain - is that possible?
+# Deploy to Netlify
+netlify deploy --dir=dist
+```
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+#### GitHub Pages (Current Method)
+```sh
+# Already configured in package.json:
+# "scripts": { 
+#   "predeploy": "npm run build",
+#   "deploy": "gh-pages -d dist" 
+# }
+
+# Deploy to GitHub Pages (builds automatically)
+npm run deploy
+```
+
+#### Cloudflare Pages
+```sh
+# Install Wrangler (Cloudflare CLI)
+npm install -g wrangler
+
+# Deploy to Cloudflare Pages
+wrangler pages deploy dist
+```
+
+## Project Structure
+
+- `/src` - Source code
+  - `/components` - Reusable UI components
+  - `/pages` - Page components
+  - `/hooks` - Custom React hooks
+  - `/lib` - Utilities and configuration
+- `vite.config.ts` - Build configuration with cache-busting enabled
+- `public/404.html` - Redirect script for client-side routing on GitHub Pages
+
+## Features
+
+- Responsive design for all device sizes
+- Clean, modern UI with subtle animations and transitions
+- Project categorization by type (Java Exercises, Business Projects, etc.)
+- Detailed project cards with tags and descriptions
+- Video demonstrations section (renamed to "Watch")
+- Enhanced cache control for better browser performance
+- Optimized for speed and performance
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## Maintenance and Automation
+
+### Deployment Script
+
+For quick deployment, you can use the included npm script:
+
+```sh
+npm run deploy
+```
+
+This script automatically builds the project and deploys it to GitHub Pages.
+
+**Important**: As detailed in [MAINTENANCE.md](./MAINTENANCE.md), only deploy after significant successful changes or when you specifically want to update the live site. Avoid frequent small deployments to prevent potential issues.
+
+## Known Issues and Solutions
+
+### Background Color
+
+There is a known issue with the light green background color not appearing on GitHub Pages. We're working on a solution for this.
+
+## Cache Control Improvements
+
+This project implements several techniques to prevent browser caching issues:
+
+1. **Cache Control Meta Tags**: 
+   ```html
+   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+   <meta http-equiv="Pragma" content="no-cache" />
+   <meta http-equiv="Expires" content="0" />
+   ```
+
+2. **Filename Hashing**: The build process adds timestamps to all generated assets to ensure browsers always load the latest versions.
+
+3. **SPA Routing Support**: A special 404.html page handles client-side routing for GitHub Pages deployment.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
