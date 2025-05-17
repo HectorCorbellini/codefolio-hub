@@ -4,29 +4,25 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 
 ## 🚀 Live Demo
 
-Visit the live portfolio at [https://hc-portfolio.netlify.app](https://hc-portfolio.netlify.app)
+Visit the live portfolio at [https://codefolio-hub.onrender.com](https://codefolio-hub.onrender.com)
 
 ## ✨ Features
 
 - **Responsive Design**: Looks great on all devices from mobile to desktop
 - **Dark/Light Mode**: Automatic theme detection with manual toggle option
-- **Interactive Project Showcase**: Modal-based project details with demo functionality
-- **Integrated Demo Launchers**: Run project demos directly from the portfolio
+- **Interactive Project Showcase**: Modal-based project details with links to demos and code
+- **Direct GitHub Links**: Access project repositories directly from the portfolio
 - **Contact Form**: Easy way for visitors to get in touch
 - **Modern UI**: Built with Tailwind CSS for a clean, modern look
 
 ## 🛠️ Technologies Used
 
-- **Frontend**:
+- **Technologies**:
   - React 18+
   - TypeScript
   - Tailwind CSS
   - Vite (for fast development and optimized builds)
   - Lucide Icons
-
-- **Backend**:
-  - Express.js (for handling project demo launches)
-  - Node.js
 
 ## 📁 Project Structure
 
@@ -46,21 +42,21 @@ Visit the live portfolio at [https://hc-portfolio.netlify.app](https://hc-portfo
 │   ├── App.tsx         # Main App component
 │   ├── main.tsx        # Entry point
 │   └── index.css       # Global styles
-├── server.js           # Express server for handling project demos
+├── keep-alive.js       # Script to prevent the Render site from sleeping
 └── tailwind.config.js  # Tailwind CSS configuration
 ```
 
-## 🔧 Project Demo Functionality
+## 🔧 Project Showcase Functionality
 
-This portfolio showcases several interactive projects with demo capabilities:
+This portfolio showcases several interactive projects with links to demos and GitHub repositories:
 
 1. **Caesar Cipher**: A Java-based encryption tool with a Swing GUI interface that demonstrates encryption/decryption using the Caesar cipher method
 2. **Ecosystem Simulation**: A Java simulation of an ecosystem with various species that visualizes population dynamics
 3. **Code Processor**: A Python-based code analysis and processing tool for examining and transforming source code
 
-The demo functionality is implemented through an Express backend that executes the appropriate files when the "Launch Demo" button is clicked. When running locally, this allows direct launching of applications from the portfolio interface.
+The portfolio provides direct links to GitHub repositories and demo pages for each project, allowing visitors to explore the code and see the projects in action.
 
-Note: The demo functionality works best when running the portfolio locally with both the frontend and backend servers active.
+Note: The portfolio is now a static site, with all demo functionality accessed through external links rather than running directly from the portfolio.
 
 ## 🚀 Running Locally
 
@@ -75,17 +71,12 @@ Note: The demo functionality works best when running the portfolio locally with 
    npm install
    ```
 
-3. Start the backend server:
-   ```bash
-   node server.js
-   ```
-
-4. In a separate terminal, start the frontend development server:
+3. Start the development server:
    ```bash
    npm run dev
    ```
 
-5. Open your browser and navigate to http://localhost:5173
+4. Open your browser and navigate to http://localhost:5173
 
 ## 📦 Building for Production
 
@@ -95,11 +86,11 @@ npm run build
 
 This will generate optimized files in the `dist` directory ready for deployment.
 
-## 🌐 Netlify Deployment
+## 🌐 Render Deployment
 
-This portfolio is deployed on Netlify with the following configuration:
+This portfolio is deployed on Render.com with the following configuration:
 
-- **Production URL**: [https://hc-portfolio.netlify.app](https://hc-portfolio.netlify.app)
+- **Production URL**: [https://codefolio-hub.onrender.com](https://codefolio-hub.onrender.com)
 - **GitHub Repository**: [https://github.com/HectorCorbellini/codefolio-hub](https://github.com/HectorCorbellini/codefolio-hub)
 - **Build Command**: `npm run build`
 - **Publish Directory**: `dist`

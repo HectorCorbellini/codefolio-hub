@@ -1,15 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Project } from '../../types';
-import { X, ExternalLink, Play, FileText } from 'lucide-react';
+import { X, ExternalLink, Github, FileText } from 'lucide-react';
 
 interface ProjectModalProps {
   project: Project;
   isOpen: boolean;
   onClose: () => void;
-  onLaunchDemo: (path: string) => void;
 }
 
-const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose, onLaunchDemo }) => {
+const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose }) => {
   const [showDescription, setShowDescription] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -104,26 +103,30 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose, o
           )}
           
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <button 
-              onClick={() => onLaunchDemo(project.demoPath)}
+            <a 
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center justify-center"
             >
-              <Play size={18} className="mr-2" />
-              Launch Demo
-            </button>
+              <ExternalLink size={18} className="mr-2" />
+              View Demo
+            </a>
+            <a 
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 rounded-lg transition-colors flex items-center justify-center"
+            >
+              <Github size={18} className="mr-2" />
+              View Code
+            </a>
             <button 
               onClick={() => setShowDescription(!showDescription)}
               className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center justify-center"
             >
               <FileText size={18} className="mr-2" />
               Description
-            </button>
-            <button 
-              className="border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900 px-6 py-3 rounded-lg transition-colors flex items-center justify-center"
-              onClick={onClose}
-            >
-              <ExternalLink size={18} className="mr-2" />
-              View More Projects
             </button>
           </div>
         </div>

@@ -17,22 +17,7 @@ const ProjectsSection: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const launchDemo = async (path: string) => {
-    try {
-      const response = await fetch('http://localhost:3001/api/open', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ path }),
-      });
-      if (!response.ok) {
-        const data = await response.json();
-        alert(`Failed to open project: ${data.error}`);
-      }
-    } catch (error) {
-      console.error(error);
-      alert('Error opening project');
-    }
-  };
+  // No longer need the launchDemo function as we're using direct links
 
   return (
     <section id="projects" className="py-20 bg-gray-50 dark:bg-indigo-950">
@@ -62,8 +47,7 @@ const ProjectsSection: React.FC = () => {
         <ProjectModal 
           project={selectedProject} 
           isOpen={isModalOpen} 
-          onClose={closeModal} 
-          onLaunchDemo={launchDemo}
+          onClose={closeModal}
         />
       )}
     </section>
