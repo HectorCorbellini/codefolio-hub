@@ -1,10 +1,10 @@
 # Héctor Corbellini's Portfolio
 
-A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS to showcase my skills, projects, and experience as an AI fullstack developer.
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS to showcase my skills, projects, and experience as an AI fullstack developer specialized in Clean Code and Clean Architecture excellence.
 
 ## 🚀 Live Demo
 
-Visit the live portfolio at [https://codefolio-hub-main-52gud7zc2-hector-corbellinis-projects.vercel.app](https://codefolio-hub-main-52gud7zc2-hector-corbellinis-projects.vercel.app)
+Visit the live portfolio at [https://hc-portfolio.netlify.app](https://hc-portfolio.netlify.app)
 
 ## ✨ Features
 
@@ -52,13 +52,15 @@ Visit the live portfolio at [https://codefolio-hub-main-52gud7zc2-hector-corbell
 
 ## 🔧 Project Demo Functionality
 
-This portfolio includes functionality to launch demos of featured projects:
+This portfolio showcases several interactive projects with demo capabilities:
 
-1. **Caesar Cipher**: A Java-based encryption tool with a Swing GUI interface
-2. **Ecosystem Simulation**: A Java simulation of an ecosystem with various species
-3. **Code Processor**: A Python-based code analysis and processing tool
+1. **Caesar Cipher**: A Java-based encryption tool with a Swing GUI interface that demonstrates encryption/decryption using the Caesar cipher method
+2. **Ecosystem Simulation**: A Java simulation of an ecosystem with various species that visualizes population dynamics
+3. **Code Processor**: A Python-based code analysis and processing tool for examining and transforming source code
 
-The demos are launched through an Express backend that executes the appropriate files when the "Launch Demo" button is clicked.
+The demo functionality is implemented through an Express backend that executes the appropriate files when the "Launch Demo" button is clicked. When running locally, this allows direct launching of applications from the portfolio interface.
+
+Note: The demo functionality works best when running the portfolio locally with both the frontend and backend servers active.
 
 ## 🚀 Running Locally
 
@@ -93,9 +95,60 @@ npm run build
 
 This will generate optimized files in the `dist` directory ready for deployment.
 
-## 🌐 Deployment
+## 🌐 Netlify Deployment
 
-This portfolio is deployed on Vercel with GitHub integration for continuous deployment. Any push to the main branch triggers a new build and deployment.
+This portfolio is deployed on Netlify with the following configuration:
+
+- **Production URL**: [https://hc-portfolio.netlify.app](https://hc-portfolio.netlify.app)
+- **GitHub Repository**: [https://github.com/HectorCorbellini/codefolio-hub](https://github.com/HectorCorbellini/codefolio-hub)
+- **Build Command**: `npm run build`
+- **Publish Directory**: `dist`
+
+The site is configured for continuous deployment through Netlify's GitHub integration. Any push to the main branch of the GitHub repository will automatically trigger a new build and deployment.
+
+### Setting Up Netlify Deployment
+
+To deploy this portfolio on Netlify, follow these steps:
+
+1. **Prepare Your Project**:
+   ```bash
+   # Build the project
+   npm run build
+   
+   # Create a _redirects file for proper routing
+   echo "/*    /index.html   200" > dist/_redirects
+   ```
+
+2. **Deploy Using Netlify CLI**:
+   ```bash
+   # Install Netlify CLI
+   npm install -g netlify-cli
+   
+   # Login to Netlify
+   netlify login
+   
+   # Initialize and link to an existing site (if applicable)
+   netlify link --id YOUR_SITE_ID
+   
+   # Deploy to production
+   netlify deploy --prod --dir=dist
+   ```
+
+3. **Alternative: Deploy via Netlify Dashboard**:
+   - Go to [app.netlify.com](https://app.netlify.com)
+   - Sign up or log in
+   - Drag and drop your `dist` folder to deploy
+   - Or connect to your GitHub repository for continuous deployment
+
+4. **Configure for Single-Page Application**:
+   - Add a `_redirects` file in your `dist` directory with:
+     ```
+     /*    /index.html   200
+     ```
+   - This ensures proper routing for a React single-page application
+
+5. **Environment Variables** (if needed):
+   - Set any required environment variables in the Netlify dashboard under Site settings > Build & deploy > Environment
 
 ## 📞 Contact
 
